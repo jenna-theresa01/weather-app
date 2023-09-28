@@ -48,20 +48,49 @@ async function test_axios(){
     console.log(result);
 };
 
+
 document.body.onload = addElement;
 // create display box(div element), and everything that will be contained inside it
 function addElement() {
     const newDiv = document.createElement("div");
+    // create input box for zip code 
+    const inputBox = document.createElement("input");
+    inputBox.setAttribute("type", "text");
+    // create more containers for information to live when it's called 
+    const cityDiv = document.createElement("div");
+    const tempDiv = document.createElement("div");
+    const conditionDiv = document.createElement("div");
+    const imgDiv = document.createElement("div");
+
+
+    
 
     // give it some content
-    const newContent = document.createTextNode("this is some content!");
+    const newContent = document.createTextNode("Weather App");
+    const cityContent = document.createTextNode("City");
+    const tempContent = document.createTextNode("Temperature");
+    const conditionContent = document.createTextNode("Condition");
+    const imgContent = document.createTextNode("Other Info")
 
-    //add the text node to the newly created div
+    // add text node to the newly created elements 
     newDiv.appendChild(newContent);
+    cityDiv.appendChild(cityContent);
+    tempDiv.appendChild(tempContent);
+    conditionDiv.appendChild(conditionContent);
+    imgDiv.appendChild(imgContent);
 
-    // add the newly created element and its content into the DOM
+
+    // add the newly created elements and its content into the DOM
     const currentDiv = document.getElementById("main");
     document.body.insertBefore(newDiv, currentDiv);
+    document.body.insertBefore(inputBox, currentDiv);
+    document.body.insertBefore(cityDiv, currentDiv);
+    document.body.insertBefore(tempDiv, currentDiv);
+    document.body.insertBefore(conditionDiv, currentDiv);
+    document.body.insertBefore(imgDiv, currentDiv);
+    
+};
 
 
-}
+
+// 
