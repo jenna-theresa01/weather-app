@@ -50,20 +50,38 @@ async function test_axios(){
 
 
 document.body.onload = addElement;
+
 // create display box(div element), and everything that will be contained inside it
 function addElement() {
+    
+    const mainDivBox =document.createElement("div");
     const newDiv = document.createElement("div");
+
+    // create main div boxes for info to live
+    const cityBox = document.createElement("div");
+    const tempBox = document.createElement("div");
+    let kelvinBox = document.createElement("div");
+    let farBox = document.createElement("div");
+    let celBox = document.createElement("div");
+    const conditionBox = document.createElement("div");
+    const infoBox = document.createElement("div");
+
+    // add style/parameters to created info div boxes
+    document.getElementById("cityBox").
+
+
     // create input box for zip code 
     const inputBox = document.createElement("input");
     inputBox.setAttribute("type", "text");
-    // create more containers for information to live when it's called 
+
+    // create button to call info
+    const searchBtn = document.createElement("button");
+
+    // create smaller containers for information to live when it's called 
     const cityDiv = document.createElement("div");
     const tempDiv = document.createElement("div");
     const conditionDiv = document.createElement("div");
     const imgDiv = document.createElement("div");
-
-
-    
 
     // give it some content
     const newContent = document.createTextNode("Weather App");
@@ -79,7 +97,6 @@ function addElement() {
     conditionDiv.appendChild(conditionContent);
     imgDiv.appendChild(imgContent);
 
-
     // add the newly created elements and its content into the DOM
     const currentDiv = document.getElementById("main");
     document.body.insertBefore(newDiv, currentDiv);
@@ -91,6 +108,11 @@ function addElement() {
     
 };
 
+// set parameters around divs to give the content space to actually be put somewhere
+
+
+// add click event to button
 
 
 // 
+
