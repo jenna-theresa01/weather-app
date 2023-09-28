@@ -1,3 +1,50 @@
-.main {
+#main {
+    text-align: center;
+
+}
+
+#main-box {
     text-align: center;
 }
+
+/* #input {
+    content: center;
+
+}
+
+#button {
+    content: center;
+
+} */
+
+#city-name {
+    text-align: center;
+
+}
+
+#temp {
+    text-align: center;
+
+}
+
+#condition-div {
+    text-align: center;
+
+}
+
+#img-div {
+    text-align: center;
+
+}
+
+#city, #temperature, #condition, #other-info {
+    text-align: center;
+
+}
+
+#kelvin, #fahrenheit, #celsius {
+    text-align: center;
+
+}
+
+

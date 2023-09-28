@@ -55,36 +55,60 @@ document.body.onload = addElement;
 function addElement() {
     
     const mainDivBox =document.createElement("div");
+    mainDivBox.id = "main-box";
     const newDiv = document.createElement("div");
 
     // create main div boxes for info to live
     const cityBox = document.createElement("div");
+    cityBox.id = "city";
+    // cityBox.classList.add("text-center");
     const tempBox = document.createElement("div");
+    tempBox.id = "temperature";
     let kelvinBox = document.createElement("div");
+    kelvinBox.id = "kelvin"
     let farBox = document.createElement("div");
+    farBox.id = "fahrenheit"
     let celBox = document.createElement("div");
+    celBox.id = "celsius"
     const conditionBox = document.createElement("div");
+    conditionBox.id = "condition"
     const infoBox = document.createElement("div");
+    infoBox.id = "other-info"
 
     // add style/parameters to created info div boxes
-    document.getElementById("cityBox").
+    document.getElementById("cityBox")
 
+    // create parent div
+    const searchDiv = document.createElement("div");
+    
 
     // create input box for zip code 
     const inputBox = document.createElement("input");
     inputBox.setAttribute("type", "text");
+    inputBox.id = "input"
+    inputBox.classList.add("text-center", "mx-auto", "d-flex");
+
+    // set placeholder text in input box
+    // document.getElementById("button").placeholder = "search zip code";
+    inputBox.placeholder = "Search Zip Code"
 
     // create button to call info
     const searchBtn = document.createElement("button");
+    searchBtn.id = "button"
 
     // create smaller containers for information to live when it's called 
     const cityDiv = document.createElement("div");
+    cityDiv.id = "city-name"
     const tempDiv = document.createElement("div");
+    tempDiv.id = "temp"
     const conditionDiv = document.createElement("div");
+    conditionDiv.id = "condition-div"
     const imgDiv = document.createElement("div");
+    imgDiv.id = "img-div"
 
     // give it some content
     const newContent = document.createTextNode("Weather App");
+    const btnContent = document.createTextNode("Let's Get It");
     const cityContent = document.createTextNode("City");
     const tempContent = document.createTextNode("Temperature");
     const conditionContent = document.createTextNode("Condition");
@@ -92,6 +116,7 @@ function addElement() {
 
     // add text node to the newly created elements 
     newDiv.appendChild(newContent);
+    searchBtn.appendChild(btnContent);
     cityDiv.appendChild(cityContent);
     tempDiv.appendChild(tempContent);
     conditionDiv.appendChild(conditionContent);
@@ -101,18 +126,27 @@ function addElement() {
     const currentDiv = document.getElementById("main");
     document.body.insertBefore(newDiv, currentDiv);
     document.body.insertBefore(inputBox, currentDiv);
+    document.body.insertBefore(searchBtn, currentDiv);
     document.body.insertBefore(cityDiv, currentDiv);
     document.body.insertBefore(tempDiv, currentDiv);
     document.body.insertBefore(conditionDiv, currentDiv);
     document.body.insertBefore(imgDiv, currentDiv);
     
+
+    
 };
+
 
 // set parameters around divs to give the content space to actually be put somewhere
 
 
-// add click event to button
+// add function to get the weather information from the api to my div containers
+// function getWeather {
 
+// }
+
+// add click event to button
+document.getElementById("button").addEventListener("click", getWeather)
 
 // 
 
