@@ -37,7 +37,7 @@ call to axios npm
 // global vars
 // beginning api call 
 const apiKey = "67a57437454438749ceaaa4b9d41767b";
-const api_url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=${apiKey}`;
+const api_url = `https://api.openweathermap.org/data/2.5/weather?zip=40509&appid=${apiKey}`;
     //setup variables, const
     // clickhandlers
     //
@@ -53,88 +53,67 @@ document.body.onload = addElement;
 
 // create display box(div element), and everything that will be contained inside it
 function addElement() {
-    
-    const mainDivBox =document.createElement("div");
-    mainDivBox.id = "main-box";
-    const newDiv = document.createElement("div");
 
-    // create main div boxes for info to live
-    const cityBox = document.createElement("div");
-    cityBox.id = "city";
-    // cityBox.classList.add("text-center");
-    const tempBox = document.createElement("div");
-    tempBox.id = "temperature";
-    let kelvinBox = document.createElement("div");
-    kelvinBox.id = "kelvin"
-    let farBox = document.createElement("div");
-    farBox.id = "fahrenheit"
-    let celBox = document.createElement("div");
-    celBox.id = "celsius"
-    const conditionBox = document.createElement("div");
-    conditionBox.id = "condition"
-    const infoBox = document.createElement("div");
-    infoBox.id = "other-info"
+    // append text to main div (currently in html) 
+    // this is the absolute parent div, I want everything else inside this main div
+    let mainDiv = document.getElementById("main");
 
-    // add style/parameters to created info div boxes
-    document.getElementById("cityBox")
+    // create parent div for input box and button
+    const searchBox = document.createElement("div");
+    searchBox.id = "search-box"
+    mainDiv.append(searchBox);
+    // how do I make parent element here?
 
-    // create parent div
-    const searchDiv = document.createElement("div");
-    
 
-    // create input box for zip code 
+    // create input box and append to html
     const inputBox = document.createElement("input");
     inputBox.setAttribute("type", "text");
-    inputBox.id = "input"
-    inputBox.classList.add("text-center", "mx-auto", "d-flex");
+    inputBox.id = "zipcode";
+    inputBox.placeholder = "Search zip code";
+    mainDiv.append(inputBox);
 
-    // set placeholder text in input box
-    // document.getElementById("button").placeholder = "search zip code";
-    inputBox.placeholder = "Search Zip Code"
-
-    // create button to call info
+    // create button and append to html
     const searchBtn = document.createElement("button");
-    searchBtn.id = "button"
+    searchBtn.id = "button";
+    searchBtn.textContent = "Let's get it";
+    searchBtn.addEventListener("click", () => {});
+    mainDiv.append(searchBtn);
 
-    // create smaller containers for information to live when it's called 
-    const cityDiv = document.createElement("div");
-    cityDiv.id = "city-name"
-    const tempDiv = document.createElement("div");
-    tempDiv.id = "temp"
-    const conditionDiv = document.createElement("div");
-    conditionDiv.id = "condition-div"
-    const imgDiv = document.createElement("div");
-    imgDiv.id = "img-div"
+    // append child to parent div (search-box)
+    document.body.appendChild(mainDiv);
 
-    // give it some content
-    const newContent = document.createTextNode("Weather App");
-    const btnContent = document.createTextNode("Let's Get It");
-    const cityContent = document.createTextNode("City");
-    const tempContent = document.createTextNode("Temperature");
-    const conditionContent = document.createTextNode("Condition");
-    const imgContent = document.createTextNode("Other Info")
-
-    // add text node to the newly created elements 
-    newDiv.appendChild(newContent);
-    searchBtn.appendChild(btnContent);
-    cityDiv.appendChild(cityContent);
-    tempDiv.appendChild(tempContent);
-    conditionDiv.appendChild(conditionContent);
-    imgDiv.appendChild(imgContent);
-
-    // add the newly created elements and its content into the DOM
-    const currentDiv = document.getElementById("main");
-    document.body.insertBefore(newDiv, currentDiv);
-    document.body.insertBefore(inputBox, currentDiv);
-    document.body.insertBefore(searchBtn, currentDiv);
-    document.body.insertBefore(cityDiv, currentDiv);
-    document.body.insertBefore(tempDiv, currentDiv);
-    document.body.insertBefore(conditionDiv, currentDiv);
-    document.body.insertBefore(imgDiv, currentDiv);
+    // create smaller main div to hold the called information
+    // let mainDiv = document.createElement("div");
     
+    // city div created here
+    // nest smaller div to hold called information from api
+    const cityBox = document.createElement("div");
+    cityBox.id = "city-box";
+    cityBox.textContent = "City"
+    mainDiv.append(cityBox);
 
-    
-};
+    // temperature div created here
+    // nest smaller div to hold called information from api
+    const tempBox = document.createElement("div");
+    tempBox.id = "temperature";
+    tempBox.textContent = "Temperature"
+    mainDiv.append(tempBox);
+
+    // condition div created here
+    // nest smaller div to hold called information from api
+    const conditionBox = document.createElement("div");
+    conditionBox.id = "condition";
+    conditionBox.textContent = "Condition"
+    mainDiv.append(conditionBox);
+
+    // other info div created here
+    // nest smaller div to hold called information from api
+    const infoBox = createElement("div");
+    infoBox.id = "info-box";
+    infoBox.textContent = "Other Info"
+    mainDiv.append(infoBox);
+
+
 
 
 // set parameters around divs to give the content space to actually be put somewhere
@@ -143,10 +122,17 @@ function addElement() {
 // add function to get the weather information from the api to my div containers
 // function getWeather {
 
-// }
+}
 
-// add click event to button
-document.getElementById("button").addEventListener("click", getWeather)
+// what I need to do: 
+/* 
+add a click event to my button
+--> call the data from the api, through axios, to append it to my page (or at least to the console)
+--> calling the data makes it a promise
+--> the promise is fulfilled when the data is appended into the html (or console)
+--> get weather function needs: async/await calls 
+--> this calls the promise 
+--> this will be attached to the click event with the button
 
-// 
 
+*/
