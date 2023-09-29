@@ -10,7 +10,7 @@ addEventistener()
     
          
 async/await
-appendChild
+append
 
 local storage?? 
     window.localStorage - stores data with no expiration date
@@ -80,7 +80,7 @@ function addElement() {
     mainDiv.append(searchBtn);
 
     // append child to parent div (search-box)
-    document.body.appendChild(mainDiv);
+    document.body.append(mainDiv);
 
     // create smaller main div to hold the called information
     // let mainDiv = document.createElement("div");
@@ -91,6 +91,10 @@ function addElement() {
     cityBox.id = "city-box";
     cityBox.textContent = "City"
     mainDiv.append(cityBox);
+
+    let cityName = document.createElement("div");
+    cityName.id = "city-name";
+    cityBox.append(cityName);
 
     // temperature div created here
     // nest smaller div to hold called information from api
@@ -107,7 +111,7 @@ function addElement() {
     mainDiv.append(conditionBox);
 
     // other info div created here
-    // nest smaller div to hold called information from api
+    // nest smaller div to hold called information from api (appendChild)
     const infoBox = createElement("div");
     infoBox.id = "info-box";
     infoBox.textContent = "Other Info"
